@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 250px;
+}
+
+.carta {
+    width: 255px;
+    height: 350px;
+}
+
+.cartaPokemon {
+    width: 100%;
+}
+
+.pokemon {
+    width: 100%;
+    opacity: 0;
+    display: block;
+    position: relative;
+}
+
+.carta:hover .cartaPokemon{
+    transform: perspective(900px) translateY(-5px) rotateX(50deg);
+    transition: 0.5s;
+}
+
+.carta:hover  .pokemon {
+    margin-bottom: -90px;
+    opacity: 1;
+    transition: 0.5s;
+}
