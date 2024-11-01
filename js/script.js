@@ -1,98 +1,74 @@
-console.log('You have connected...')
+// Obtenemos los datos que vamos a usar de los pokémon
+const fetchPokemon = async (id) => {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(`Error al conectar: ${id}:`, error);
+    }
+};
 
-document.addEventListener("DOMContentLoaded", () =>{
+// Que se ejecute nada más cargar el documento
+document.addEventListener("DOMContentLoaded", () => {
+    const rowContainer = document.getElementById("row-container"); 
 
-    let generateBtn = document.querySelector('#generate-pokemon');
-    generateBtn.addEventListener('click', renderEverything)
-
-    getDeleteBtn().addEventListener('click', deleteEverything);
-})
-
-function renderEverything(){
-    let allPokemonContainer = document.querySelector('#poke-container')
-    allPokemonContainer.innerText = "";
-    fetchKantoPokemon();
-
-    getDeleteBtn().style.display = 'block'
-}
-
-function getDeleteBtn(){
-    return document.querySelector('#delete-btn')
-}
+    // Aqui almacenaremos los datos de los pokémon
+    const pokemonList = [];
 
 
-function fetchKantoPokemon(){
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    .then(response => response.json())
-    .then(function(allpokemon){
-        allpokemon.results.forEach(function(pokemon){
-            fetchPokemonData(pokemon);
-        })
-    })
-}
+    const cargarPokemon = async () => {
+        for (let i = 387; i <= 493; i++) {
+            const pokemon = await fetchPokemon(i);
+            if (pokemon) {
+                pokemonList.push(pokemon);
+            }
+        }
+        dibujarPokemons();
+    };
 
-function fetchPokemonData(pokemon){
-    let url = pokemon.url // <--- this is saving the pokemon url to a variable to use in the fetch. 
-                                //Example: https://pokeapi.co/api/v2/pokemon/1/"
-    fetch(url)
-    .then(response => response.json())
-    .then(function(pokeData){
-        renderPokemon(pokeData)
-    })
-}
+    const crearCartaPokemon = (pokemon) => {
+        const col = document.createElement("div");
+        col.classList.add("col-12", "col-sm-6", "col-md-4", "col-lg-3");
 
+        const card = document.createElement("div");
+        card.classList.add("card", "text-center", "p-3");
 
-function renderPokemon(pokeData){
-    let allPokemonContainer = document.getElementById('poke-container');
-    let pokeContainer = document.createElement("div") //div will be used to hold the data/details for indiviual pokemon.{}
-    pokeContainer.classList.add('ui', 'card');
+        // Redirige al pokémon en concreto
+        card.addEventListener("click", () => {
+            window.location.href = `pokemon.html?id=${pokemon.id}`;
+        });
 
-    createPokeImage(pokeData.id, pokeContainer);
+        const imagen = document.createElement("img");
+        imagen.classList.add("mx-auto");
+        imagen.src = pokemon.sprites.front_default;
+        imagen.alt = pokemon.name;
 
-    let pokeName = document.createElement('h4') 
-    pokeName.innerText = pokeData.name
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
 
-    let pokeNumber = document.createElement('p')
-    pokeNumber.innerText = `#${pokeData.id}`
-   
-    let pokeTypes = document.createElement('ul') //ul list will hold the pokemon types
-  
+        const nombrePokemon = document.createElement("h5");
+        nombrePokemon.classList.add("card-title");
+        nombrePokemon.textContent = `${pokemon.name.toUpperCase()}`;
 
-    createTypes(pokeData.types, pokeTypes) // helper function to go through the types array and create li tags for each one
+        const numeroPokemon = document.createElement("p");
+        numeroPokemon.classList.add("card-text", "text-muted");
+        numeroPokemon.textContent = `#${pokemon.id - 386} / #${pokemon.id}`;
 
-    pokeContainer.append(pokeName, pokeNumber, pokeTypes);   //appending all details to the pokeContainer div
-    allPokemonContainer.appendChild(pokeContainer);       //appending that pokeContainer div to the main div which will                                                             hold all the pokemon cards
-}
+        cardBody.appendChild(nombrePokemon);
+        cardBody.appendChild(numeroPokemon);
+        card.appendChild(imagen);
+        card.appendChild(cardBody);
+        col.appendChild(card);
 
-function createTypes(types, ul){
-    types.forEach(function(type){
-        let typeLi = document.createElement('li');
-        typeLi.innerText = type['type']['name'];
-        ul.append(typeLi)
-    })
-}
+        rowContainer.appendChild(col);
+    };
 
-function createPokeImage(pokeID, containerDiv){
-    let pokeImgContainer = document.createElement('div')
-    pokeImgContainer.classList.add('image')
+    const dibujarPokemons = () => {
+        pokemonList.forEach((pokemon) => {
+            crearCartaPokemon(pokemon);
+        });
+    };
 
-    let pokeImage = document.createElement('img')
-    pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
-
-    pokeImgContainer.append(pokeImage);
-    containerDiv.append(pokeImgContainer);
-}
-
-function deleteEverything(event){
-    event.target.style = 'none';
-    let allPokemonContainer = document.querySelector('#poke-container')
-    allPokemonContainer.innerText = ""
-
-    let generateBtn = document.createElement('button')
-    generateBtn.innerText = "Generate Pokemon"
-    generateBtn.id = 'generate-pokemon'
-    generateBtn.classList.add('ui', 'secondary', 'button')
-    generateBtn.addEventListener('click', renderEverything);
-
-    allPokemonContainer.append(generateBtn)
-}
+    cargarPokemon();
+});
