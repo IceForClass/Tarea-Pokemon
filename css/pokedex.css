@@ -1,0 +1,50 @@
+body {
+    background-color: #f4e8c1;
+    font-family: 'Georgia', serif;
+    color: #3c2f2f;
+    padding: 20px;
+}
+
+footer {
+    background-color: rgba(60, 47, 47, 0.7);
+    color: whitesmoke;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.container{
+    background: rgba(255, 245, 215, 0.8);
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.pokedex-container {
+    background: rgba(255, 245, 215, 0.8);
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background-color: #f4e8c1;
+    border: 1px solid #8b4513;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s; 
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title .card-text{
+    color: #3c2f2f;
+}
+
+.card img {
+    width: 135px;
+    border: 2px solid #8b4513;
+    border-radius: 50%;
+}
