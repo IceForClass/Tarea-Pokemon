@@ -1,13 +1,14 @@
+body * {
+    cursor: url("/resources/cursor.png");
+}
+
 body {
     background-image: url("../resources/background.jpg");
 }
 
-.logo {
-    width: 125px;
-}
-
-img {
-    width: 350px;
+nav {
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {
@@ -15,12 +16,48 @@ footer {
     color: whitesmoke;
     font-weight: bold;
     padding: 10px;
-    
     position: absolute;
     width: 100%;
     bottom: 0px;
 }
 
+img {
+    width: 350px;
+}
+
+input {
+    width: 15%;
+}
+
+a {
+    margin-left: 5%;
+}
+
+input {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+}
+
 button {
-    border: 10px;
+    background-color: aqua;
+}
+
+.boton {
+    border: none;
+    padding: 7px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: white;
+    transition: 1s;
+}
+
+.boton:hover {
+    border-color: black;
+    box-shadow: 10px 10px black;
+}
+
+.logo {
+    width: 125px;
 }
