@@ -3,6 +3,12 @@ body {
     cursor: url('../resources/cursor.png'), auto !important;
 }
 
+.body {
+    background-image: url("../resources/background.jpg");
+    cursor: url('../resources/cursor.png'), auto !important;
+    overflow: hidden;
+}
+
 header, main {
     display: flex;
     justify-content: space-between;
@@ -218,18 +224,18 @@ footer p {
 }
 
 
-aside img {
-    width: 100%;
+a img {
+    width: 70%;
 }
 
 aside {
     width: 15%;
     margin: 0;
-    background-color: #555;
 }
 
 .si {
     position: fixed;
+    left: -1px;
     top: 30%;
     background: none;
 }
@@ -241,7 +247,22 @@ aside {
 
 .no {
     position: fixed;
-    right: -30px;
+    right: 10px;
     top: 30%;
     background: none;
+}
+
+.sino {
+    text-decoration: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.sino:hover {
+    
+    text-decoration: none;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
