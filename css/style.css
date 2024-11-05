@@ -1,6 +1,5 @@
 body {
     background-image: url("../resources/background.jpg");
-    cursor: url('../resources/cursor.png'), auto !important;
 }
 
 .body {
@@ -58,7 +57,7 @@ footer {
 }
 
 footer p {
-    margin-left: 36%;
+    margin-left: 20%;
 }
 
 .nav-aside {
