@@ -2,52 +2,71 @@
 <html lang="en">
     <head>
         <title>Champion</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-
-        <!-- Bootstrap CSS v5.2.1 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+
+        <link rel="stylesheet" href="../css/style.css">
     </head>
 
     <body>
-        <header>
-            <!-- place navbar here -->
+        <header class="navbar rounded">
+            <div class="container-fluid">
+                <img class="logo" src="../resources/logo.png" width="5%"/>
+    
+                <nav>
+                  <a href="../index.html"><button class="boton" style="background-color: rgb(241, 212, 184);">Home</button></a>
+                  
+                  <a href="pokedex.html"><button class="boton" style="background-color: rgb(241, 212, 184);">Podedex</button></a>
+                  
+                  <a href="#"><button class="boton" style="background-color: rgb(241, 212, 184);">Champion</button></a>
+                </nav>
+    
+                <input placeholder="Dialga">
+            </div>
         </header>
         <main>
             <div>
                 <h1 class="text-center">Equipo de la campeona</h1>
             </div>
-            <div class="container bg-warning mt-3 rounded clearfix">
-                <img class="float-end" src="../resources/cynthia.png" alt="cynthia">
+            
+            <div class="container bg-warning mt-3 rounded d-flex">
+                <div class="flex-grow-1">
+                    <div class="p-2 rounded"> 
+                        <h3 class="text-center mb-0 text-bg-dark">Cynthia</h3> 
+                    </div>
+                    <div id="pokemon-grid" class="row">
+                        <!-- Imágenes del equipo -->
+                    </div>
+                </div>
+                <img class="ms-auto" src="../resources/cynthia.png" alt="cynthia">
             </div>
-
             <div>
-            <h2 class="text-center">Historia</h2>
-        </div>
-        </main>
-        <footer>
-            <!-- place footer here -->
-        </footer>
+                <h2 class="text-center mt-4">Historia</h2>
+                <div class="container mt-3">
+                    <div class="bg-light p-4 rounded">
+                        <p class="lead">
+                            Cynthia es la campeona de la Liga Pokémon de Sinnoh y una destacada investigadora en el campo de los Pokémon. Desde joven, ha mostrado un profundo interés por la relación entre humanos y Pokémon, lo que la llevó a convertirse en una experta en mitos y leyendas de la región.
+                        </p>
+                        <p>
+                            Durante su carrera, jugó un papel crucial en la lucha contra el equipo Galaxia, que intentaba usar a los legendarios Dialga y Palkia para distorsionar la realidad. Con la ayuda de los entrenadores, Cynthia salvó a Sinnoh de un destino sombrío, consolidándose como una figura clave en la historia de la región.
+                        </p>
+                        <p>
+                            Conocida por su sabiduría y valentía, Cynthia también es famosa por su estilo elegante y su poderoso Garchomp. Su legado inspira a entrenadores a seguir sus sueños y a valorar la amistad entre Pokémon y humanos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
         <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        
+        <script src="../js/cynthia.js"></script>
     </body>
 </html>
