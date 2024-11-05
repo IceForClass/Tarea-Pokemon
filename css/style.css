@@ -3,6 +3,12 @@ body {
     cursor: url('../resources/cursor.png'), auto !important;
 }
 
+.body {
+    background-image: url("../resources/background.jpg");
+    cursor: url('../resources/cursor.png'), auto !important;
+    overflow: hidden;
+}
+
 header, main {
     display: flex;
     justify-content: space-between;
@@ -47,8 +53,12 @@ footer {
     font-weight: bold;
     padding: 10px;
     width: 100%;
-    position: fixed;
-    bottom: 0;  
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin-left: 36%;
 }
 
 .nav-aside {
@@ -110,7 +120,7 @@ footer {
     max-height: 600px;
     overflow-y: auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #ffa83a;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     margin: 0 20px;
@@ -121,7 +131,7 @@ footer {
 }
 
 .contenido::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #ffa83a;
     border-radius: 10px;
 }
 
@@ -140,11 +150,11 @@ footer {
     text-align: center;
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid greenyellow;
 }
 
 .contenido article {
-    background-color: #f9f9f9;
+    background-color: mediumorchid;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
@@ -160,7 +170,7 @@ footer {
     font-size: 1.8em;
     color: #444;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ffa83a;
     padding-bottom: 10px;
 }
 
@@ -211,4 +221,48 @@ footer {
     .contenido h2 {
         font-size: 1.5em;
     }
+}
+
+
+a img {
+    width: 70%;
+}
+
+aside {
+    width: 15%;
+    margin: 0;
+}
+
+.si {
+    position: fixed;
+    left: -1px;
+    top: 30%;
+    background: none;
+}
+
+.si img, .no img {
+    width: 80%;
+}
+
+
+.no {
+    position: fixed;
+    right: 10px;
+    top: 30%;
+    background: none;
+}
+
+.sino {
+    text-decoration: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.sino:hover {
+    
+    text-decoration: none;
+    background: none;
+    border: none;
+    box-shadow: none;
 }

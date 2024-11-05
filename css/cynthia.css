@@ -16,9 +16,17 @@ footer {
     color: whitesmoke;
     font-weight: bold;
     padding: 10px;
-    position: absolute;
     width: 100%;
-    bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin-left: 36%;
+}
+
+footer img {
+    width: 10%;
 }
 
 img {
